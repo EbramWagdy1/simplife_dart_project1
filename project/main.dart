@@ -1,4 +1,6 @@
 
+import 'dart:collection';
+import 'dart:convert';
 import 'dart:io';
 
 enum Dept {
@@ -54,7 +56,7 @@ void main() {
       case"2":
         print(line);
         print("Students Data:\n");
-        var output=stu.map((s)=>"Name: ${s.name}, Age: ${s.age}, Dept: ${s.dep}").join("\n");
+        var output=stu.map((s)=>"Name: ${s.name.padRight(10)}, Age: ${s.age.toString().padRight(3)}, Dept: ${s.dep.toString()}").join("\n"); //.tostring to padding
         print(output);
         print(line);
 
@@ -85,6 +87,65 @@ void main() {
         print("Departments: ${depts}");
 
         print(line);
+        break;
+      case "5":
+        dynamic file=File("students.json");
+        dynamic data=stu.map((s)=>{
+          "Name": s.name,
+          "Age": s.age,
+          "Dept": s.dep.toString()      //json not know enum
+        }).toList();
+        file.writeAsStringSync(jsonEncode(data));   //save data as json
+        print("Students saved to file successfully!");
+
+
+
+        break;
+      case"6":
+        dynamic file=File("loadfile.json");
+        if(file.existsSync()){
+          String contant=file.readAsStringSync();
+          List<dynamic>data= jsonDecode(contant);
+          stu=data.map((s){
+            var dept = Dept.values.firstWhere(
+                  (d) => d.toString().split('.').last.toLowerCase() == s["dep"].toString().toLowerCase(),
+              orElse: () => Dept.Notfound,
+            );
+
+            return (
+            name: (s["name"] ?? "").toString().toLowerCase(),
+            age: s["age"] ?? 0,
+            dep: dept
+            );
+
+
+          }).toList();
+          print("Students loaded from file successfully!");
+
+
+        } else{
+          print("No saved file found!");
+        }
+
+
+
+
+        break;
+      case"7":
+        print("Students Sorted by Name (SplayTreeSet):\n");
+        var splay = SplayTreeSet<({String name, int age, Dept dep})>.from(
+          stu,
+              (a, b) => a.name.compareTo(b.name),
+        );
+
+        var output = splay
+            .map((s) => "Name: ${s.name.padRight(10)}, Age: ${s.age.toString().padRight(3)}, Dept: ${s.dep}")
+            .join("\n");
+
+        print(output);
+
+
+        break;
 
       case "0":
         print("Exiting program...");
