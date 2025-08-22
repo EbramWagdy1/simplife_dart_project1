@@ -1,0 +1,3 @@
+{Name: ebram, Age: 25, Dept: Dept.CS}
+{Name: mina, Age: 36, Dept: Dept.IS}
+{Name: wagdy samy, Age: 51, Dept: Dept.AC}
