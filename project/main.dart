@@ -31,7 +31,8 @@ void main() {
 
 
   //creat Empty  to add student information
-  List stu=[];
+  List <dynamic> stu=[];
+
 
 
 
@@ -81,7 +82,7 @@ void main() {
       case"2":
         print(line);
         print("Students Data:\n");
-        var output=stu.map((s)=>"Name: ${s.name.padRight(10)}, Age: ${s.age.toString().padRight(3)}, Dept: ${s.dep.toString()}").join("\n");  //.tostring to padding
+        String output=stu.map((s)=>"Name: ${s.name.padRight(10)}, Age: ${s.age.toString().padRight(3)}, Dept: ${s.dep.toString()}").join("\n");  //.tostring to padding
         print(output);
         print(line);
 
@@ -95,8 +96,8 @@ void main() {
         stdout.write("Enter Name Of Student:\t");
         String n = stdin.readLineSync()!;
         final r = RegExp("^${n.toLowerCase()}\$");
-        var results = stu.where((s) => r.hasMatch(s.name)).toList();
-        var out=results.map((s)=>"Name: ${s.name.padRight(10)}, Age: ${s.age.toString().padRight(3)}, Dept: ${s.dep.toString()}").join("\n");
+        dynamic results = stu.where((s) => r.hasMatch(s.name)).toList();
+        Object out=results.map((s)=>"Name: ${s.name.padRight(10)}, Age: ${s.age.toString().padRight(3)}, Dept: ${s.dep.toString()}").join("\n");
         print(out);
         print(line);
         break;
@@ -109,13 +110,13 @@ void main() {
         print("Total students: ${stu.length}");
         
         var ages=stu.map((s)=> s.age).toList();
-        var minAge=ages.reduce((a, b) => a < b ? a : b);
-        var maxAge=ages.reduce((a, b) => a > b ? a : b);
+        int minAge=ages.reduce((a, b) => a < b ? a : b);
+        int maxAge=ages.reduce((a, b) => a > b ? a : b);
         var ageR=(minAge,maxAge);
         print("The Min Age: ${ageR.$1}");
         print("The Max Age: ${ageR.$2}");
 
-        var depts=stu.map((s)=>s.dep).toSet();
+        Object depts=stu.map((s)=>s.dep).toSet();
         print("Departments: ${depts}");
         print(line);
         break;
@@ -126,7 +127,7 @@ void main() {
       case "5":
         print(line);
         var file = File("students.txt");
-        var save = StringBuffer();
+       dynamic save = StringBuffer();
         save.writeAll(
           stu.map((s)=>"{Name: ${s.name}, Age: ${s.age.toString()}, Dept: ${s.dep.toString()}}\n")
         );
@@ -149,6 +150,7 @@ void main() {
                   (d) => d.toString() == p[2].split(": ")[1],
               orElse: () => Dept.Notfound
           )
+
           );
         }).toList();
         print("Students loaded from file successfully!");
@@ -163,8 +165,8 @@ void main() {
       case"7":
         print(line);
         print("Students Sorted by Name (SplayTreeSet):\n");
-        var splay = SplayTreeSet<({String name, int age, Dept dep})>.from(stu, (a, b) => a.name.compareTo(b.name),);
-        var output = splay.map((s) => "Name: ${s.name.padRight(10)}, Age: ${s.age.toString().padRight(3)}, Dept: ${s.dep}").join("\n");
+        var splay  = SplayTreeSet<dynamic>.from(stu, (a, b) => a.name.compareTo(b.name),);
+        Object output  = splay.map((s) => "Name: ${s.name.padRight(10)}, Age: ${s.age.toString().padRight(3)}, Dept: ${s.dep}").join("\n");
         print(output);
         print(line);
         break;

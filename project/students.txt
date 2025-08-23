@@ -1,3 +1,15 @@
-{Name: ebram, Age: 25, Dept: Dept.CS}
-{Name: mina, Age: 36, Dept: Dept.IS}
-{Name: wagdy samy, Age: 51, Dept: Dept.AC}
+{Name: Ali, Age: 20, Dept: Dept.CS}
+{Name: Sara, Age: 22, Dept: Dept.IT}
+{Name: Mona, Age: 19, Dept: Dept.AC}
+{Name: Omar, Age: 23, Dept: Dept.IS}
+{Name: Nour, Age: 21, Dept: Dept.CS}
+{Name: Hany, Age: 24, Dept: Dept.IT}
+{Name: Dalia, Age: 20, Dept: Dept.AC}
+{Name: Karim, Age: 25, Dept: Dept.CS}
+{Name: Salma, Age: 22, Dept: Dept.IS}
+{Name: Youssef, Age: 23, Dept: Dept.IT}
+{Name: Ebram, Age: 21, Dept: Dept.CS}
+{Name: Mariam, Age: 21, Dept: Dept.AC}
+{Name: Peter, Age: 26, Dept: Dept.IS}
+{Name: Farah, Age: 20, Dept: Dept.IT}
+{Name: George, Age: 22, Dept: Dept.CS}
