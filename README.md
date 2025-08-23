@@ -1,6 +1,8 @@
-# 🏆 THE FIRST DART PROJECT AT SIMPLIFE EG
+# 🏆 THE FIRST DART PROJECT AT SIMPLIFE EG  
 
-# 🎓 Student Information Manager (Console App)
+---
+
+## 🎓 Student Information Manager (Console App)
 This is a Dart console application that manages student information. The program allows users to add, search, display, and save/load students with support for collections, file I/O, and string formatting.
 
 ## 🛠 Features Implemented
